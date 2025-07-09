@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Comparison Results</h1>
+    </header>
+
+    <main>
+        <section id="comparisonTable">
+            <h2>Comparison Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th id="product1Header"></th>
+                        <th id="product2Header"></th>
+                    </tr>
+                </thead>
+                <tbody id="comparisonBody">
+                    <!-- Comparison data will be populated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Product Comparison</p>
+    </footer>
+
+    <script>
+        // Get query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const company1 = urlParams.get('company1');
+        const company2 = urlParams.get('company2');
+
+        // Dummy data for comparison
+        const productData = {
+            samsung: {
+                model: 'Samsung Galaxy S21',
+                camera: '108 MP',
+                battery: '4000 mAh',
+                size: '6.2 inches',
+                price: '$799'
+            },
+            apple: {
+                model: 'iPhone 13',
+                camera: '12 MP',
+                battery: '3095 mAh',
+                size: '6.1 inches',
+                price: '$799'
+            },
+            google: {
+                model: 'Google Pixel 6',
+                camera: '50 MP',
+                battery: '4614 mAh',
+                size: '6.4 inches',
+                price: '$599'
+            },
+            oneplus: {
+                model: 'OnePlus 9',
+                camera: '48 MP',
+                battery: '4500 mAh',
+                size: '6.55 inches',
+                price: '$729'
+            }
+        };
+
+        // Set headers based on selected companies
+        document.getElementById('product1Header').innerText = productData[company1].model;
+        document.getElementById('product2Header').innerText = productData[company2].model;
+
+        // Populate comparison data
+        const features = ['camera', 'battery', 'size', 'price'];
+        const comparisonBody = document.getElementById('comparisonBody');
+
+        features.forEach(feature => {
+            const row = document.createElement('tr');
+            const featureCell = document.createElement('td');
+            featureCell.innerText = feature.charAt(0).toUpperCase() + feature.slice(1);
+            row.appendChild(featureCell);
+
+            row.appendChild(createDataCell(productData[company1][feature]));
+            row.appendChild(createDataCell(productData[company2][feature]));
+
+            comparisonBody.appendChild(row);
+        });
+
+        // Helper function to create a data cell
+        function createDataCell(value) {
+            const dataCell = document.createElement('td');
+            dataCell.innerText = value;
+            return dataCell;
+        }
+    </script>
+</body>
+</html>
