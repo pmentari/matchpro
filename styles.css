@@ -4,8 +4,9 @@ body {
     padding: 0; /* Remove default padding */
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     height: 100vh; /* Full height of the viewport */
 }
 
