@@ -26,6 +26,7 @@
                     <!-- Comparison data will be populated here -->
                 </tbody>
             </table>
+            <button id="backButton">Back to Selection</button>
         </section>
     </main>
 
@@ -97,6 +98,11 @@
             dataCell.innerText = value;
             return dataCell;
         }
+
+        // Back button functionality
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redirect to the main page
+        });
     </script>
 </body>
 </html>
