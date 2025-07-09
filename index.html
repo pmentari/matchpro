@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Product Comparison Tool</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Select a Product to Compare</h2>
+            <div>
+                <label for="productSelect">Product:</label>
+                <select id="productSelect">
+                    <option value="">Select a product</option>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                </select>
+            </div>
+            <h2>Select Companies to Compare</h2>
+            <div>
+                <label for="companySelect1">Company 1:</label>
+                <select id="companySelect1">
+                    <option value="">Select a company</option>
+                    <option value="mandiri">Bank Mandiri</option>
+                    <option value="bri">BRI</option>
+                    <option value="bni">BNI</option>
+                    <option value="btn">BTN</option>
+                    <option value="bsi">BSI</option>
+                    <option value="bca">BCA</option>
+                </select>
+            </div>
+            <div>
+                <label for="companySelect2">Company 2:</label>
+                <select id="companySelect2">
+                    <option value="">Select a company</option>
+                    <option value="mandiri">Bank Mandiri</option>
+                    <option value="bri">BRI</option>
+                    <option value="bni">BNI</option>
+                    <option value="btn">BTN</option>
+                    <option value="bsi">BSI</option>
+                    <option value="bca">BCA</option>
+                </select>
+            </div>
+            <button id="compareButton">Compare</button>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('compareButton').addEventListener('click', function() {
+            const selectedProduct = document.getElementById('productSelect').value;
+            const company1 = document.getElementById('companySelect1').value;
+            const company2 = document.getElementById('companySelect2').value;
+
+            // Check if a product and both companies are selected
+            if (!selectedProduct) {
+                alert('Please select a product to compare.');
+                return;
+            }
+            if (!company1 || !company2) {
+                alert('Please select both companies to compare.');
+                return;
+            }
+
+            // Redirect to the comparison page with selected product and companies as query parameters
+            window.location.href = `comparison.html?product=${selectedProduct}&company1=${company1}&company2=${company2}`;
+        });
+    </script>
+</body>
+</html>
