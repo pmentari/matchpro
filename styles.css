@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0; /* Remove default padding */
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -14,8 +14,16 @@ header {
     margin-bottom: 20px;
 }
 
+main {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    text-align: center; /* Center text in the main section */
+}
+
 section {
-    text-align: center; /* Center text in the section */
+    width: 100%; /* Ensure section takes full width */
+    max-width: 400px; /* Optional: limit the width for better appearance */
 }
 
 div {
