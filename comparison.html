@@ -38,33 +38,47 @@
 
         // Dummy data for comparison
         const productData = {
-            samsung: {
-                model: 'Samsung Galaxy S21',
-                camera: '108 MP',
-                battery: '4000 mAh',
-                size: '6.2 inches',
-                price: '$799'
+            mandiri: {
+                model: 'Bank Mandiri',
+                interestRate: '6.5%',
+                minimumBalance: 'Rp 500,000',
+                loanAmount: 'Up to Rp 1,000,000,000',
+                serviceFee: 'Rp 10,000/month'
             },
-            apple: {
-                model: 'iPhone 13',
-                camera: '12 MP',
-                battery: '3095 mAh',
-                size: '6.1 inches',
-                price: '$799'
+            bri: {
+                model: 'BRI',
+                interestRate: '6.0%',
+                minimumBalance: 'Rp 250,000',
+                loanAmount: 'Up to Rp 500,000,000',
+                serviceFee: 'Rp 5,000/month'
             },
-            google: {
-                model: 'Google Pixel 6',
-                camera: '50 MP',
-                battery: '4614 mAh',
-                size: '6.4 inches',
-                price: '$599'
+            bni: {
+                model: 'BNI',
+                interestRate: '6.2%',
+                minimumBalance: 'Rp 300,000',
+                loanAmount: 'Up to Rp 750,000,000',
+                serviceFee: 'Rp 7,500/month'
             },
-            oneplus: {
-                model: 'OnePlus 9',
-                camera: '48 MP',
-                battery: '4500 mAh',
-                size: '6.55 inches',
-                price: '$729'
+            btn: {
+                model: 'BTN',
+                interestRate: '6.3%',
+                minimumBalance: 'Rp 400,000',
+                loanAmount: 'Up to Rp 800,000,000',
+                serviceFee: 'Rp 8,000/month'
+            },
+            bsi: {
+                model: 'BSI',
+                interestRate: '6.1%',
+                minimumBalance: 'Rp 200,000',
+                loanAmount: 'Up to Rp 600,000,000',
+                serviceFee: 'Rp 6,000/month'
+            },
+            bca: {
+                model: 'BCA',
+                interestRate: '6.4%',
+                minimumBalance: 'Rp 300,000',
+                loanAmount: 'Up to Rp 1,500,000,000',
+                serviceFee: 'Rp 12,000/month'
             }
         };
 
@@ -73,13 +87,13 @@
         document.getElementById('product2Header').innerText = productData[company2].model;
 
         // Populate comparison data
-        const features = ['camera', 'battery', 'size', 'price'];
+        const features = ['interestRate', 'minimumBalance', 'loanAmount', 'serviceFee'];
         const comparisonBody = document.getElementById('comparisonBody');
 
         features.forEach(feature => {
             const row = document.createElement('tr');
             const featureCell = document.createElement('td');
-            featureCell.innerText = feature.charAt(0).toUpperCase() + feature.slice(1);
+            featureCell.innerText = feature.charAt(0).toUpperCase() + feature.slice(1).replace(/([A-Z])/g, ' $1'); // Format feature name
             row.appendChild(featureCell);
 
             row.appendChild(createDataCell(productData[company1][feature]));
