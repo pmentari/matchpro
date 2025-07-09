@@ -29,6 +29,30 @@ section {
     max-width: 400px; /* Optional: limit the width for better appearance */
 }
 
+div {
+    margin-bottom: 15px; /* Add space between the company selection divs */
+}
+
+select {
+    margin-left: 10px; /* Add space between the label and the select box */
+    width: 100%; /* Make select box full width */
+}
+
+button {
+    margin-top: 10px; /* Add space above the button */
+    padding: 10px 20px; /* Add padding for better button size */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; /* Make button full width */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -44,20 +68,4 @@ th, td {
 th {
     background-color: #007bff;
     color: white;
-}
-
-button {
-    margin-top: 10px; /* Add space above the button */
-    padding: 10px 20px; /* Add padding for better button size */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    width: 100%; /* Make button full width */
-    max-width: 300px; /* Optional: limit the width of the button */
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
 }
