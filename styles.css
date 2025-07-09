@@ -3,6 +3,10 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
 }
 
 header {
@@ -11,12 +15,35 @@ header {
 }
 
 section {
-    margin-bottom: 20px;
+    text-align: center; /* Center text in the section */
+}
+
+div {
+    margin-bottom: 15px; /* Add space between the company selection divs */
+}
+
+select {
+    margin-left: 10px; /* Add space between the label and the select box */
+}
+
+button {
+    margin-top: 10px; /* Add space above the button */
+    padding: 10px 20px; /* Add padding for better button size */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin: 20px 0; /* Add some margin for spacing */
 }
 
 th, td {
