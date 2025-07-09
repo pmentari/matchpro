@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Product</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Select a Product to Compare</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Choose a Product</h2>
+            <div>
+                <label for="productSelect">Product:</label>
+                <select id="productSelect">
+                    <option value="">Select a product</option>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                </select>
+            </div>
+            <button id="nextButton">Next</button>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('nextButton').addEventListener('click', function() {
+            const selectedProduct = document.getElementById('productSelect').value;
+
+            // Check if a product is selected
+            if (!selectedProduct) {
+                alert('Please select a product to compare.');
+                return;
+            }
+
+            // Redirect to the company selection page with the selected product as a query parameter
+            window.location.href = `company_selection.html?product=${selectedProduct}`;
+        });
+    </script>
+</body>
+</html>
