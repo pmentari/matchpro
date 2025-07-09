@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Companies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Select Companies to Compare</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2 id="productHeader"></h2>
+            <div>
+                <label for="companySelect1">Company 1:</label>
+                <select id="companySelect1">
+                    <option value="">Select a company</option>
+                    <option value="mandiri">Bank Mandiri</option>
+                    <option value="bri">BRI</option>
+                    <option value="bni">BNI</option>
+                    <option value="btn">BTN</option>
+                    <option value="bsi">BSI</option>
+                    <option value="bca">BCA</option>
+                </select>
+            </div>
+            <div>
+                <label for="companySelect2">Company 2:</label>
+                <select id="companySelect2">
+                    <option value="">Select a company</option>
+                    <option value="mandiri">Bank Mandiri</option>
+                    <option value="bri">BRI</option>
+                    <option value="bni">BNI</option>
+                    <option value="btn">BTN</option>
+                    <option value="bsi">BSI</option>
+                    <option value="bca">BCA</option>
+                </select>
+            </div>
+            <button id="compareButton">Compare</button>
+        </section>
+    </main>
+
+    <script>
+        // Get the selected product from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedProduct = urlParams.get('product');
+
+        // Set the product header
+        document.getElementById('productHeader').innerText = `Comparing: ${selectedProduct}`;
+
+        document.getElementById('compareButton').addEventListener('click', function() {
+            const company1 = document.getElementById('companySelect1').value;
+            const company2 = document.getElementById('companySelect2').value;
+
+            // Check if both companies are selected
+            if (!company1 || !company2) {
+                alert('Please select both companies to compare.');
+                return;
+            }
+
+            // Redirect to the comparison page with selected companies and product as query parameters
+            window.location.href = `comparison.html?product=${selectedProduct}&company1=${company1}&company2=${company2}`;
+        });
+    </script>
+</body>
+</html>
