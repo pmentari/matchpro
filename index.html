@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Product Comparison</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Select Companies to Compare</h2>
+            <div>
+                <label for="companySelect1">Company 1:</label>
+                <select id="companySelect1">
+                    <option value="">Select a company</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="apple">Apple</option>
+                    <option value="google">Google</option>
+                    <option value="oneplus">OnePlus</option>
+                </select>
+            </div>
+            <div>
+                <label for="companySelect2">Company 2:</label>
+                <select id="companySelect2">
+                    <option value="">Select a company</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="apple">Apple</option>
+                    <option value="google">Google</option>
+                    <option value="oneplus">OnePlus</option>
+                </select>
+            </div>
+            <button id="compareButton">Compare</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Product Comparison</p>
+    </footer>
+
+    <script>
+        document.getElementById('compareButton').addEventListener('click', function() {
+            const company1 = document.getElementById('companySelect1').value;
+            const company2 = document.getElementById('companySelect2').value;
+
+            // Check if both companies are selected
+            if (!company1 || !company2) {
+                alert('Please select both companies to compare.');
+                return;
+            }
+
+            // Redirect to the comparison page with selected companies as query parameters
+            window.location.href = `comparison.html?company1=${company1}&company2=${company2}`;
+        });
+    </script>
+</body>
+</html>
