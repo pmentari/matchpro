@@ -13,7 +13,7 @@
 
     <main>
         <section id="comparisonTable">
-            <h2>Comparison Results</h2>
+            <h2 id="productHeader"></h2>
             <table>
                 <thead>
                     <tr>
@@ -33,6 +33,7 @@
     <script>
         // Get query parameters
         const urlParams = new URLSearchParams(window.location.search);
+        const selectedProduct = urlParams.get('product');
         const company1 = urlParams.get('company1');
         const company2 = urlParams.get('company2');
 
@@ -82,6 +83,9 @@
             }
         };
 
+        // Set the product header
+        document.getElementById('productHeader').innerText = `Comparing: ${selectedProduct}`;
+
         // Set headers based on selected companies
         document.getElementById('product1Header').innerText = productData[company1].model;
         document.getElementById('product2Header').innerText = productData[company2].model;
@@ -111,7 +115,7 @@
 
         // Back button functionality
         document.getElementById('backButton').addEventListener('click', function() {
-            window.location.href = 'index.html'; // Redirect to the main page
+            window.location.href = 'product_selection.html'; // Redirect to the product selection page
         });
     </script>
 </body>
