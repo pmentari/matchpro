@@ -15,7 +15,7 @@
             text-align: center; /* Center the body text */
         }
         h2 {
-            font-size: 20px; /* Adjust the font size for h2 elements */
+            font-size: 18px; /* Decrease the font size for h2 elements */
             text-align: center; /* Center the h2 elements */
         }
         /* Center the compare button */
@@ -23,7 +23,7 @@
             display: block; /* Make the button a block element */
             margin: 20px auto; /* Center the button with auto margins */
         }
-        /* Center the select elements and labels */
+        /* Center the select elements */
         div {
             text-align: center; /* Center the text in the divs */
         }
@@ -32,9 +32,9 @@
             margin: 10px auto; /* Center the select elements with auto margins */
             width: 200px; /* Set a fixed width for the select elements */
         }
-        label {
-            display: block; /* Make the label a block element */
-            margin: 10px auto; /* Center the label with auto margins */
+        /* Add space after the product select */
+        #productSelect {
+            margin-bottom: 20px; /* Add space below the product select */
         }
     </style>
 </head>
@@ -47,9 +47,8 @@
 
     <main>
         <section>
-            <h2>Select a Product to Compare</h2>
+            <h2>Pilih Layanan</h2> <!-- Renamed h2 for product -->
             <div>
-                <label for="productSelect">Product:</label>
                 <select id="productSelect">
                     <option value="">Select a product</option>
                     <option value="product1">Product 1</option>
@@ -57,9 +56,8 @@
                     <option value="product3">Product 3</option>
                 </select>
             </div>
-            <h2>Select Companies to Compare</h2>
+            <h2>Pilih Penyedia Layanan</h2> <!-- Renamed h2 for company -->
             <div>
-                <label for="companySelect1">Company 1:</label>
                 <select id="companySelect1">
                     <option value="">Select a company</option>
                     <option value="mandiri">Bank Mandiri</option>
@@ -71,7 +69,6 @@
                 </select>
             </div>
             <div>
-                <label for="companySelect2">Company 2:</label>
                 <select id="companySelect2">
                     <option value="">Select a company</option>
                     <option value="mandiri">Bank Mandiri</option>
@@ -82,7 +79,7 @@
                     <option value="bca">BCA</option>
                 </select>
             </div>
-            <button id="compareButton">Compare</button>
+            <button id="compareButton">Bandingkan Sekarang</button> <!-- Renamed button -->
         </section>
     </main>
 
