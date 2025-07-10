@@ -36,6 +36,25 @@
         #productSelect {
             margin-bottom: 20px; /* Add space below the product select */
         }
+        /* Style for comparison results */
+        #comparisonResults {
+            display: none; /* Hide results initially */
+            margin-top: 20px; /* Add some space above the results */
+            text-align: center; /* Center the results text */
+        }
+        table {
+            width: 100%; /* Full width for the table */
+            border-collapse: collapse; /* Collapse borders */
+            margin: 0 auto; /* Center the table */
+        }
+        th, td {
+            border: 1px solid #ddd; /* Add border to table cells */
+            padding: 8px; /* Add padding to table cells */
+            text-align: center; /* Center text in table cells */
+        }
+        th {
+            background-color: #f2f2f2; /* Light gray background for header */
+        }
     </style>
 </head>
 <body>
@@ -47,39 +66,55 @@
 
     <main>
         <section>
-            <h2>Pilih Layanan</h2> <!-- Renamed h2 for product -->
+            <h2>Pilih Layanan</h2>
             <div>
                 <select id="productSelect">
                     <option value="">Select a product</option>
-                    <option value="product1">Product 1</option>
-                    <option value="product2">Product 2</option>
-                    <option value="product3">Product 3</option>
+                    <option value="Product A">Product A</option>
+                    <option value="Product B">Product B</option>
+                    <option value="Product C">Product C</option>
                 </select>
             </div>
-            <h2>Pilih Penyedia Layanan</h2> <!-- Renamed h2 for company -->
+            <h2>Pilih Penyedia Layanan</h2>
             <div>
                 <select id="companySelect1">
                     <option value="">Select a company</option>
-                    <option value="mandiri">Bank Mandiri</option>
-                    <option value="bri">BRI</option>
-                    <option value="bni">BNI</option>
-                    <option value="btn">BTN</option>
-                    <option value="bsi">BSI</option>
-                    <option value="bca">BCA</option>
+                    <option value="Bank Mandiri">Bank Mandiri</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BTN">BTN</option>
+                    <option value="BSI">BSI</option>
+                    <option value="BCA">BCA</option>
                 </select>
             </div>
             <div>
                 <select id="companySelect2">
                     <option value="">Select a company</option>
-                    <option value="mandiri">Bank Mandiri</option>
-                    <option value="bri">BRI</option>
-                    <option value="bni">BNI</option>
-                    <option value="btn">BTN</option>
-                    <option value="bsi">BSI</option>
-                    <option value="bca">BCA</option>
+                    <option value="Bank Mandiri">Bank Mandiri</option>
+                    <option value="BRI">BRI</option>
+                    <option value="BNI">BNI</option>
+                    <option value="BTN">BTN</option>
+                    <option value="BSI">BSI</option>
+                    <option value="BCA">BCA</option>
                 </select>
             </div>
-            <button id="compareButton">Bandingkan Sekarang</button> <!-- Renamed button -->
+            <button id="compareButton">Bandingkan Sekarang</button>
+        </section>
+
+        <section id="comparisonResults">
+            <h2 id="productTypeHeading"></h2> <!-- Heading for product type -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th> <!-- Changed from "Detail" to "Feature" -->
+                        <th id="company1Name"></th> <!-- Company 1 name will be set here -->
+                        <th id="company2Name"></th> <!-- Company 2 name will be set here -->
+                    </tr>
+                </thead>
+                <tbody id="resultsContent">
+                    <!-- Results will be populated here -->
+                </tbody>
+            </table>
         </section>
     </main>
 
@@ -99,8 +134,51 @@
                 return;
             }
 
-            // Redirect to the comparison page with selected product and companies as query parameters
-            window.location.href = `comparison.html?product=${selectedProduct}&company1=${company1}&company2=${company2}`;
+            // Dummy data for features
+            const features = {
+                "Product A": {
+                    "Feature 1": "Fast Transactions",
+                    "Feature 2": "Low Fees",
+                    "Feature 3": "24/7 Support"
+                },
+                "Product B": {
+                    "Feature 1": "High Security",
+                    "Feature 2": "Mobile App",
+                    "Feature 3": "Multi-Currency Support"
+                },
+                "Product C": {
+                    "Feature 1": "Easy Integration",
+                    "Feature 2": "Customizable Solutions",
+                    "Feature 3": "Analytics Dashboard"
+                }
+            };
+
+            // Set the product type heading
+            document.getElementById('productTypeHeading').innerText = `Tipe Produk: ${selectedProduct}`;
+            // Set the company names in the table header
+            document.getElementById('company1Name').innerText = company1;
+            document.getElementById('company2Name').innerText = company2;
+
+            // Display comparison results in table format
+            const resultsContent = document.getElementById('resultsContent');
+            resultsContent.innerHTML = `
+                <tr>
+                    <td>Fitur 1</td>
+                    <td>${features[selectedProduct]["Feature 1"]}</td>
+                    <td>${features[selectedProduct]["Feature 1"]}</td>
+                </tr>
+                <tr>
+                    <td>Fitur 2</td>
+                    <td>${features[selectedProduct]["Feature 2"]}</td>
+                    <td>${features[selectedProduct]["Feature 2"]}</td>
+                </tr>
+                <tr>
+                    <td>Fitur 3</td>
+                    <td>${features[selectedProduct]["Feature 3"]}</td>
+                    <td>${features[selectedProduct]["Feature 3"]}</td>
+                </tr>
+            `;
+            document.getElementById('comparisonResults').style.display = 'block'; // Show results section
         });
     </script>
 </body>
