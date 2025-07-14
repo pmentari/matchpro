@@ -43,7 +43,8 @@
             text-align: center; /* Center the results text */
         }
         table {
-            width: 100%; /* Full width for the table */
+            width: 90%; /* Set the table width to 90% of the container */
+            max-width: 1200px; /* Set a maximum width for the table */
             border-collapse: collapse; /* Collapse borders */
             margin: 0 auto; /* Center the table */
             table-layout: fixed; /* Fixed layout for consistent column widths */
@@ -69,6 +70,13 @@
         }
         th:nth-child(3), td:nth-child(3) {
             width: 35%; /* Wider column for company 2 */
+        }
+        /* Style for the back button */
+        #backButton {
+            display: none; /* Hide back button initially */
+            margin: 20px auto; /* Center the button with auto margins */
+            padding: 10px 20px; /* Add padding to the button */
+            font-size: 14px; /* Font size for the button */
         }
     </style>
 </head>
@@ -129,6 +137,7 @@
                     <!-- Results will be populated here -->
                 </tbody>
             </table>
+            <button id="backButton">Kembali</button> <!-- Back button -->
         </section>
     </main>
 
@@ -217,6 +226,7 @@
         };
 
         document.getElementById('compareButton').addEventListener('click', renderComparisonTable);
+        document.getElementById('backButton').addEventListener('click', goBack);
 
         function renderComparisonTable() {
             const selectedProduct = document.getElementById('productSelect').value;
@@ -235,6 +245,7 @@
             }
 
             document.getElementById('comparisonResults').style.display = 'block';
+            document.getElementById('backButton').style.display = 'block'; // Show back button
             document.getElementById('productTypeHeading').textContent = `Perbandingan untuk ${selectedProduct}`;
             document.getElementById('company1Name').textContent = selectedCompanies[0];
             document.getElementById('company2Name').textContent = selectedCompanies[1];
@@ -251,6 +262,11 @@
                     <td>${features[selectedProduct][selectedCompanies[1]]?.[featureName] ?? 'N/A'}</td>
                 </tr>
             `).join('');
+        }
+
+        function goBack() {
+            document.getElementById('comparisonResults').style.display = 'none'; // Hide comparison results
+            document.getElementById('backButton').style.display = 'none'; // Hide back button
         }
     </script>
 </body>
