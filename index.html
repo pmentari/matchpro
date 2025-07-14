@@ -41,12 +41,12 @@
             display: none; /* Hide results initially */
             margin-top: 20px; /* Add some space above the results */
             text-align: center; /* Center the results text */
-            overflow: auto; /* Allow scrolling if content overflows */
         }
         table {
             width: 100%; /* Full width for the table */
             border-collapse: collapse; /* Collapse borders */
             margin: 0 auto; /* Center the table */
+            table-layout: auto; /* Allow columns to adjust based on content */
         }
         th, td {
             border: 1px solid #ddd; /* Add border to table cells */
@@ -54,6 +54,7 @@
             text-align: center; /* Center text in table cells */
             color: black; /* Set font color to black for both th and td */
             word-wrap: break-word; /* Allow text to wrap within cells */
+            max-width: 200px; /* Set a maximum width for cells */
         }
         th {
             background-color: #f2f2f2; /* Light gray background for header */
