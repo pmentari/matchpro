@@ -46,19 +46,28 @@
             width: 100%; /* Full width for the table */
             border-collapse: collapse; /* Collapse borders */
             margin: 0 auto; /* Center the table */
-            table-layout: auto; /* Allow columns to adjust based on content */
+            table-layout: fixed; /* Fixed layout for consistent column widths */
         }
         th, td {
             border: 1px solid #ddd; /* Add border to table cells */
-            padding: 8px; /* Add padding to table cells */
+            padding: 12px; /* Add padding to table cells */
             text-align: center; /* Center text in table cells */
             color: black; /* Set font color to black for both th and td */
             word-wrap: break-word; /* Allow text to wrap within cells */
-            max-width: 200px; /* Set a maximum width for cells */
         }
         th {
             background-color: #f2f2f2; /* Light gray background for header */
             color: black; /* Ensure header text color is black */
+        }
+        /* Set specific widths for columns */
+        th:first-child, td:first-child {
+            width: 30%; /* Wider column for feature names */
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 35%; /* Wider column for company 1 */
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 35%; /* Wider column for company 2 */
         }
     </style>
 </head>
@@ -123,15 +132,6 @@
     </main>
 
     <script>
-        const companies = [
-            { id: 1, name: "Bank Mandiri" },
-            { id: 2, name: "BRI" },
-            { id: 3, name: "BNI" },
-            { id: 4, name: "BTN" },
-            { id: 5, name: "BSI" },
-            { id: 6, name: "BCA" }
-        ];
-
         const features = {
             QRIS: {
                 "Bank Mandiri": {
